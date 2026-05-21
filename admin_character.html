@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加角色 - 玩具总动员后台</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .admin-form {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .admin-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: #45a049;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>玩具总动员 - 后台管理</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/toy-story/">前台首页</a></li>
+            <li><a href="/toy-story/characters">人物列表</a></li>
+            <li><a href="/admin/toy/plot/add">添加情节</a></li>
+            <li><a href="/admin/toy/init">初始化数据</a></li>
+        </ul>
+    </nav>
+
+    <form class="admin-form" method="POST" enctype="multipart/form-data">
+        <h2>添加新角色</h2>
+
+        <div class="form-group">
+            <label>角色名 *</label>
+            <input type="text" name="name" required placeholder="例：胡迪">
+        </div>
+
+        <div class="form-group">
+            <label>英文名</label>
+            <input type="text" name="english_name" placeholder="例：Woody">
+        </div>
+
+        <div class="form-group">
+            <label>角色定位 *</label>
+            <select name="role" required>
+                <option value="主角">主角</option>
+                <option value="配角">配角</option>
+                <option value="反派">反派</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>配音演员</label>
+            <input type="text" name="voice_actor" placeholder="例：汤姆·汉克斯">
+        </div>
+
+        <div class="form-group">
+            <label>首次登场</label>
+            <input type="text" name="first_appear" placeholder="例：玩具总动员1">
+        </div>
+
+        <div class="form-group">
+            <label>性格特点</label>
+            <textarea name="personality" placeholder="勇敢、忠诚、有领导力"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>人物介绍</label>
+            <textarea name="description" placeholder="详细描述这个角色..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>角色图片</label>
+            <input type="file" name="image" accept="image/*">
+            <small style="color:#999">建议尺寸：300x300px</small>
+        </div>
+
+        <button type="submit" class="submit-btn">保存角色</button>
+        <a href="/toy-story/characters" class="back-link">← 返回人物列表</a>
+    </form>
+</div>
+</body>
+</html>
